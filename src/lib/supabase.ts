@@ -1,0 +1,26 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+export type Database = {
+  planner_data: {
+    Row: {
+      id: string
+      user_id: string
+      data_key: string
+      data_value: string
+      updated_at: string
+    }
+  }
+  profiles: {
+    Row: {
+      id: string
+      email: string
+      full_name: string
+      created_at: string
+    }
+  }
+}
